@@ -1,0 +1,26 @@
+/* app css stylesheet */
+
+
+body{
+	background: url('images/weather2.jpg');
+	background-size: cover;
+}
+.inputOption{
+	margin-left: 4px;
+	padding-bottom: 3px;
+}
+#dateTime{
+	margin-right: 4px;
+	font-size: 22px;
+}
+.dataTable{
+	font-size: 20px;
+}
+
+#forecastSize{
+	font-size: 20px;
+}
+
+.forecastTable{
+	font-size: 17px;
+}

@@ -1,0 +1,12 @@
+{
+    "name": "MyWeather",
+    "private": true,
+    "version": "0.0.0",
+    "description": "A simple weather project",
+    "license": "MIT",
+    "devDependencies": {},
+    "scripts": {
+        "prestart": "npm install",
+        "start": "http-server -a localhost -p 8000 -c-1"
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myWeather"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Weather App</title>
+    <link rel="icon" type = "image" href="images/rainbow.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body ng-controller = "weatherController">
+  </br>
+    <div class="text-right text-danger " id="dateTime">{{currentDate | date:'yyyy-MM-dd'}} &ensp; {{currentDate | date:'hh:mm:ss'}}</div>
+  </br></br> 
+  
+  <div class="row">
+    <div class="col-md-2 inputOption" align="center">
+      <input type="text"  ng-model="location" placeholder="CITY" ng-keyup = "$event.keyCode == 13 ? getWeather() : null">
+    </div>
+    <div class="col-md-2" align="center">
+      <button class="btn btn-info btn-sm"  ng-click="getWeather()">Get Weather</button>
+    </div>
+  </div>
+
+
+</br></br>
+<div class="container dataTable">
+    <div class="row text-center text-primary " >
+      <div class="col-md-3"> Current Temperature </div>
+      <div class="col-md-2"> Feels Like </div>
+      <div class="col-md-2">Condition</div>
+      <div class="col-md-2">Humidity</div>
+      <div class="col-md-2">Wind</div>
+      
+    </div>
+
+    <div class="row text-center text-danger ">
+      <div class="col-md-3"> {{currentTemperature }}°C </div>
+      <div class="col-md-2">{{feelsLike}}°C </div>
+      <div class="col-md-2">{{condition}}</div>
+      <div class="col-md-2">{{humidity}}</div>
+      <div class="col-md-2">{{wind}}kph</div>
+      
+    </div>
+</div>
+
+<br><br><br>
+
+  <div class="row ml-4">
+    <div class="col-md-3 text-info" id="forecastSize">Weather Forecast:</div>  
+  </div>
+  <br>
+  <div class="forecastTable">
+    <div class="row text-center text-primary " >
+        <div class="col-md-2">Date</div>
+        <div class="col-md-2"> Avg Temperature </div>
+        <div class="col-md-2"> Max Temperature </div>
+        <div class="col-md-2">Min Temperature</div>
+        <div class="col-md-2"> Avg Humidity</div>
+        <div class="col-md-2">Max Wind</div>
+        
+      </div>
+
+      <div class="row text-center text-danger " ng-repeat = "values in foreCast">
+        <div class="col-md-2">{{values.date}}</div>
+        <div class="col-md-2"> {{values.day.avgtemp_c }}°C </div>
+        <div class="col-md-2">{{values.day.maxtemp_c}}°C </div>
+        <div class="col-md-2">{{values.day.mintemp_c}}°C</div>
+        <div class="col-md-2">{{values.day.avghumidity}}</div>
+        <div class="col-md-2">{{values.day.maxwind_kph}}kph</div>
+        
+      </div>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.min.js"></script>
+  <script src="app.js"></script>
+ 
+</body>
+</html>
